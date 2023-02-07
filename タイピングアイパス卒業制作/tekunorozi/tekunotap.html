@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125452319-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125452319-3');
+    </script>
+        <title>タイピングゲーム</title>
+<meta charset="utf-8">
+        <meta name="description" content="ローマ字入力用のタイピング練習ゲームです、暇つぶしや練習にどうぞ">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    <audio src ="_sound_anime_mp3_incorrect1.mp3" id="missaudio">現環境では音が鳴りません</audio>
+    <audio src ="_sound_battle_mp3_handgun-out-bullets1.mp3" id="correctaudio"></audio>
+ <script>
+var wordlist = ["risuto","kyu-","sutakku","kikouzou","2bunki","nagarezu","sengatatansakuhou","2bunkitansakuhou","sentakuso-to","baburuso-to","kuikkuso-to","c","fortran","java","python","javascript","r","sql","php","ro-ko-do","no-ko-do","api","html","xml","sgml","json","cpu","marutipurosessa","GPU","kurokkusyuuhasuu","spam","dram","rom","hurassyumemori","ddrsdram","dimm","hdd","ssd","cd","dvd","blu-raydisc","sdka-do","kyassyumemori","syukioku","hozyokioku","rfid","usb","ieee1394","pcmcia","hdmi","displayport","dvi","bluetooth","irda","nfc","akutyue-ta","debaisudoraiba","puraguandopurei","os","windows","macos","unix","chromeos","linux","ios","android","kasoukioku","ru-todexirekutori","karentodexirekutori","fairukakutyousi","huragumente-syon","a-kaibu","kurippua-to","pipottode-tahyou","oss","mokutekihensuu","soukanbunseki","saitekikamondai","setumeihensuu","syakudo","kaikibunseki","gurafurironn","enekisuironn","nyu-rarunettowa-ku","dhi-pura-ningu","kinousuironn","bakkupurobake-syonn","kikaigakusyuu","kasseikakansuu","repurike-syonn","dexyupurekkususisutemu","kurasutasisutemu","raid","vdi","sutandoaronn","kuraiantosa-basisutemu","sinkuraianto","kasouka","raibumaigure-syonn","dexyuarusisutemu","piatu-pia","nas","vm","resuponsutaimu","bentima-ku","mttr","fu-ruru-pu","inisyarukosuto","suru-putto","kadouritu","fe-ruse-fu","ko-rusutandobai","ranningukosuto","ta-naraundotaimu","mtbf","fo-rutotoreranto","hottosutanbai","tco","uxearaburutanmatu","ime-jisukyana","3dpurinta","webkamera","kannetusikipurinta","suma-todebaisu","tattipaneru","ocr","inkujyettopurinta","re-zapurinta","pentaburetto","purojyekuta","omr","inpakutopurinta","lan","habu","musenlan","wi-fidirect","ge-touxei","macadoresu","modemu","lte","bi-konn","ble","wan","ru-ta","vlan","messyuwi-fi","deforutoge-touxei","essid","ta-minaruadaputa","5g","lpwa","iotnettowa-ku","nettowa-kuinta-feisuka-do","suitti","wi-fi","wps","purokisi","intoranetto","mojyura-jyakku","sdn","ejjikonpyu-thingu","nat","osikihonsansyoumoderu","http","pop","ntp","tcp/ipkaisoumoderu","https","imap","dhcp","tcp/ip","smtp","ftp","po-tobangou","ipadoresu","dns","me-ringurisuto","cookie","mime","kuro-ra","ipdenwa","mimo","simka-do","adsl","sabunettomasuku","url","cc","cgi","rss","mvno","handoo-ba","kyariaagurige-syonn","esim","ftth","ipv6","douhoume-ru","bcc","cms","onrainsutore-ji","isp","ro-mingu","tezaringu","teremathikusu","risukumanejimento","jyouhousekyurithiporisi","kayouka","youninbousi","puraibasi-porisi","csirt","konpyu-tauirusutodokedeseido","j-crst","risukuasesumento","kimitusei","sinseisei","sinraisei","saiba-hokenn","soc","risukutaiou","kanzensei","tuisekisei","dezainnogensoku","sigunifaia","kouzoukasinariohou","uxdezainn","yuniba-sarudezainn","pikutoguramu","innfoguraffikusu","yu-zabirithi","akusesibirithi","zyesutya-innta-fe-su","vui","gui","raziobotann","tyekkubokkusu","risutobokkusu","purudaunnmenyu-","poppuappumenyu","samuneiru","css","mobairufa-suto","ninngenntyuusinnsekkei","sutori-minngu","ennko-do","drm","cprm","html5","mp3","midi","jpeg","gif","png","bmp","mpeg","pdf","zip","kagyakuassyuku","hikagyakuassyuku","rgb","cmy","cmyk","dpi","peinkeisofutoulea","doro-keisofutoukea","konnpyu-tagurafikkusu","ba-tyaruriarithi","ar","sr","mr","kankeide-tabe-su","de-tabe-sukannrisisutemu","rdbms","nosql","de-takurennzinngu","e-rzu","syuki-","gaibuki-","inndekkusu","syaei","senntaku","haitaseigyo","torannzakusyonn","acidtokusei","dedrokku","2soukomittomennto","tyekkupoinnnto","ro-rubakku","ro-rufowa"];
+var wordlistJapanese = ["リスト","キュー","スタック","木構造","2分木","流れ図","線型探索法","2分木探索法","選択ソート","バブルソート","クイックソート","C","Fortran","Java","Python","JavaScript","R","SQL","PHP","ローコード","ノーコード","API","HTML","XML","SGML","JSON","CPU","マルチプロセッサ","GPU","クロック周波数","SPAM","DRAM","ROM","フラッシュメモリ","DDR SDRAM","DIMM","HDD","SSD","CD","DVD","Blu-ray Disc","SDカード","キャッシュメモリ","主記憶","補助記憶","RFID","USB","IEEE1394","PCMCIA","HDMI","DisplayPort","DVI","Bluetooth","IrDA","NFC","アクチュエータ","デバイスドライバ","プラグアンドプレイ","OS","Windows","Mac OS","UNIX","Chrome OS","Linux","iOS","Android","仮想記憶","ルートディレクトリ","カレントディレクトリ","ファイル拡張子","フラグメンテーション","アーカイブ","クリップアート","ピッポトデータ表","OSS","目的変数","相関分析","最適化問題","説明変数","尺度","回帰分析","グラフ異論","演繹推論","ニューラルネットワーク","ディープラーニング","帰納推論","バックプロバケーション","機械学習","活性化関数","レプリケーション","デュプレックスシステム","クラスタシステム","RAID","VDI","スタンドアロン","クライアントサーバシステム","シンクライアント","仮想化","ライブマイグレーション","デュアルシステム","ピアツーピア","NAS","VM","レスポンスタイム","ベンチマーク","MTTR","フールプルーフ","イニシャルコスト","スループット","稼働率","フェールセーフ","コールスタンドバイ","ランニングコスト","ターンアラウンドタイム","MTBF","フォールトトレラント","ホットスタンバイ","TCO","ウェアラブル端末","イメージスキャナ","3Dプリンタ","webカメラ","感熱式プリンタ","スマートデバイス","タッチパネル","OCR","インクジェットプリンタ","レーザプリンタ","ペンタブレット","プロジェクタ","OMR","インパクトプリンタ","LAN","ハブ","無線LAN","Wi-Fi Direct","ゲートウェイ","MACアドレス","モデム","LTE","ビーコン","BLE","WAN","ルータ","VLAN","メッシュWi-Fi","デフォルトゲートウェイ","ESSID","ターミナルアダプタ","5G","LPWA","Iotエリアネットワーク","ネットワークインターフェイスカード","スイッチ","Wi-Fi","WPS","プロキシ","イントラネット","モジュラージャック","SDN","エッジコンピューティング","NAT","OSI基本通信参照モデル","HTTP","POP","NTP","TCP/IP階層モデル","HTTPS","IMAP","DHCP","TCP/IP","SMTP","FTP","ポート番号","IPアドレス","DNS","メーリングリスト","cookie","MIME","クローラ","IP電話","MIMO","SIMカード","ADSL","サブネットマスク","URL","cc","CGI","RSS","MVNO","ハンドオーバ","キャリアアグリゲーション","eSIM","FTTH","IPv6","同報メール","bcc","CMS","オンラインストレージ","ISP","ローミング","テザリング","テレマティクス","リスクマネジメント","情報セキュリティポリシ","可用化","否認防止","プライバシーポリシ","CSIRT","コンピュータウイルス届出制度","J-CRST","リスクアセスメント","機密性","真正性","信頼性","サイバー保険","SOC","リスク対応","完全性","責任追跡性","デザインの原則","シグニファイア","構造化シナリオ法","UXデザイン","ユニバーサルデザイン","ピクトグラム","インフォグラフィックス","ユーザビリティ","アクセシビリティ","ジェスチャーインタフェース","VUI","GUI","ラジオボタン","チェックボックス","リストボックス","プルダウンメニュー","ポップアップメニュー","サムネイル","CSS","モバイルファースト","人間中心設計","ストリーミング","エンコード","DRM","CPRM"," HTML5","MP3","MIDI","JPEG","GIF","PNG","BMP","MPEG","PDF","ZIP","可逆圧縮","非可逆圧縮","RGB","CMY","CMYK","dpi","ペイン系ソフトウェア","ドロー系ソフトウェア","コンピュータグラフィックス","バーチャルリアリティ","AR","SR","MR","関係データベース","データベース管理システム","RDBMS","NoSQL","データクレンジング","E-R図","主キー","外部キ-","インデックス","射影","選択","排他制御","トランザクション","ACID特性","デッドロック","2相コミット","チェックポイント","ロールバック","ロールフォワード"];
+     var time_limit = 90;
+     var readytime = 3;
+     var score;
+     var correct;
+     var mistake;
+     var char_num = 0;
+     var word_char;
+     var random;
+     function ready(){
+         readytime = 3;
+         scoredis.innerHTML="";
+         start_button.style.visibility ="hidden";
+         var readytimer = setInterval(function(){
+             count.innerHTML=readytime;
+             readytime--;
+             if(readytime < 0){
+                clearInterval(readytimer);
+                 gameStart();
+                }
+         },1000);
+     }
+     function gameStart(){
+         score = 0.0;
+         mistake = 0;
+         correct = 0;
+         wordDisplay();
+         var time_remaining = time_limit;
+         var gametimer = setInterval(function(){
+            count.innerHTML="残り時間："+time_remaining;
+             time_remaining--;
+             if(time_remaining <= 0){
+             clearInterval(gametimer);
+                 finish();
+         }
+         },1000);
+     }
+     function wordDisplay(){
+         random = Math.floor( Math.random() * wordlist.length );
+         word.innerHTML=wordlist[random];
+         japanese.innerHTML=wordlistJapanese[random];
+         charInsort();
+     }
+     function charInsort(){
+         word_char = wordlist[random].charAt(char_num);
+     }
+     function finish(){
+         score = Math.floor(Math.pow(correct,2) * Math.pow((correct/(correct+mistake)),5));
+         scoredis.innerHTML="スコア:"+score+"点"+"<hr>正タイプ数:"+correct+"<br>ミスタイプ数:"+mistake+"<br>正答率"+(correct/(correct+mistake)*100).toFixed(1)+"%";
+         count.innerHTML="";
+         word.innerHTML="";
+         japanese.innerHTML="";
+         start_button.style.visibility ="visible";
+         word_char=0;
+         random = 0;
+         char_num = 0;
+     }
+document.onkeydown = function(e) {
+    if(e.keyCode == 189){
+       keyStr = "-";
+       }else if(e.keyCode == 188){
+                keyStr = ","
+                }else{
+ var keyStr = String.fromCharCode(e.keyCode);
+    keyStr = keyStr.toLowerCase();
+       }
+    if(keyStr == word_char){
+        document.getElementById('missaudio').pause();
+        document.getElementById('missaudio').currentTime = 0;
+        document.getElementById('correctaudio').pause();
+                   document.getElementById('correctaudio').currentTime = 0;
+        document.getElementById('correctaudio').play();
+        word.innerHTML="<span style='color: red;'>"+wordlist[random].substr(0,char_num+1)+"</span>"+wordlist[random].substr(char_num+1,wordlist[random].length);
+        char_num++;
+        correct++;
+        charInsort();
+       }else{
+                      document.getElementById('missaudio').pause();
+           document.getElementById('missaudio').currentTime = 0;
+           document.getElementById('correctaudio').pause();
+           document.getElementById('correctaudio').currentTime = 0;
+           mistake++;
+           document.getElementById('missaudio').play();
+       }
+    if(char_num == wordlist[random].length){
+        char_num=0;
+        wordDisplay();
+       }
+};
+
+</script>
+        <script data-ad-client="ca-pub-1985911096518287" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+           </head>
+<body>
+       
+                <div class="wrap">
+                <input type="button" id="start_button" value="start" onclick="ready()" style="text-align: center">
+                <div id="count"></div>
+                    <h1><div id="japanese"></div></h1>
+                    <h2><div id="word"></div></h2>
+                <div id="scoredis"></div>
+                
+    </div>
+    <br><br><br><br><br>
+            <div class="menyu">
+                <a href="../tekunorozi/c.html" class="btn_01">用語の解説</a>
+                <a href="../maingamen/main.html" class="btn_01">トップに戻る</a>
+            </div>
+</body>
+
+
+</html>

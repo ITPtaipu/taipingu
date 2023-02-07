@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125452319-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125452319-3');
+    </script>
+        <title>タイピングゲーム</title>
+<meta charset="utf-8">
+        <meta name="description" content="ローマ字入力用のタイピング練習ゲームです、暇つぶしや練習にどうぞ">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    <audio src ="_sound_anime_mp3_incorrect1.mp3" id="missaudio">現環境では音が鳴りません</audio>
+    <audio src ="_sound_battle_mp3_handgun-out-bullets1.mp3" id="correctaudio"></audio>
+ <script>
+var wordlist = ["hinsitutokusei","gaibusekkei","naibusekkei","ko-dhingu","konpaira","howaitobokkusu","debaggu","tantaitesuto","ketugoutesuto","sisutemutesuto","unyoutesuto","burakkubokkusutesuto","kaikitesuto","ukeiretesuto","fankusyonpointohou","obujekutosikou","uml","who-tafo-rumoderu","supairarumoderu","purototaipingumoderu","rad","riba-suenjiniaringu","ajairu","xp","rifakutaringu","sukuramu","kyoutuuhure-mu","cmmi","sute-kuhoruda","purojekutokensyou","wbs","aro-daiaguramu","gantocha-to","pmbok","mairusuto-n","itil","sla","slm","insidentokanri","mondaikanri","kouseikanri","henkoukanri","sa-bisudesuku","esukare-syon","faq","chatobotto","facirithimanejimento","ups","sekyurithiwaiya","sa-jibougo","sisutemukansa","jyouhousekyurithikansa","kansasyouko","kansachousa","foro-appu","naibutousei","syokumubunsyou","risukukontoro-rumatorikusu","itgabanansu","devops","ko-dorebyu-","sohutowheadounyuu","sohutowheahosyu","ruisuimitumorihou","puroguramusuteppuhou","hyoujuntasukuhou","de-tachuusinapuro-ti","purosesuchuusinapuro-ti","tesutokudoukaihatu","peapuroguramingu","purojekuto","kurithikarupasubunseki","purugatakomyunike-syon","itsa-bisumanejimento","riri-suoyobitenkaikanri","huri-adoresu","sisutemukansakijun","sisutemukansahoukokusyo","kansachousyo"];
+var wordlistJapanese = ["品質特性","外部設計","内部設計","コーディング","コンパイラ","ホワイトボックス","デバッグ","単体テスト","結合テスト","システムテスト","運用テスト","ブラックボックステスト","回帰テスト","受入れテスト","ファンクションポイント法","オブジェクト指向","UML","ウォータフォールモデル","スパイラルモデル","プロトタイピングモデル","RAD","リバースエンジニアリング","アジャイル","XP","リファクタリング","スクラム","共通フレーム","CMMI","ステークホルダ","プロジェクト憲章","WBS","アローダイアグラム","ガントチャート","PMBOK","マイルストーン","ITIL","SLA","SLM","インシデント管理","問題管理","構成管理","変更管理","サービスデスク","エスカレーション","FAQ","チャットボット","ファシリティマネジメント","UPS","セキュリティワイヤ","サージ防護","システム監査","情報セキュリティ監査","監査証拠","監査調査","フォローアップ","内部統制","職務分掌","リスクコントロールマトリクス","ITガバナンス","DevOps","コードレビュー","ソフトウェア導入","ソフトウェア保守","類推見積法","プログラムステップ法","標準タスク法","データ中心アプローチ","プロセス中心アプローチ","テスト駆動開発","ペアプログラミング","プロジェクト","クリティカルパス分析","プル型コミュニケーション","ITサービスマネジメント","リリース及び展開管理","フリーアドレス","システム監査基準","システム監査報告書","監査調書"];
+     var time_limit = 90;
+     var readytime = 3;
+     var score;
+     var correct;
+     var mistake;
+     var char_num = 0;
+     var word_char;
+     var random;
+     function ready(){
+         readytime = 3;
+         scoredis.innerHTML="";
+         start_button.style.visibility ="hidden";
+         var readytimer = setInterval(function(){
+             count.innerHTML=readytime;
+             readytime--;
+             if(readytime < 0){
+                clearInterval(readytimer);
+                 gameStart();
+                }
+         },1000);
+     }
+     function gameStart(){
+         score = 0.0;
+         mistake = 0;
+         correct = 0;
+         wordDisplay();
+         var time_remaining = time_limit;
+         var gametimer = setInterval(function(){
+            count.innerHTML="残り時間："+time_remaining;
+             time_remaining--;
+             if(time_remaining <= 0){
+             clearInterval(gametimer);
+                 finish();
+         }
+         },1000);
+     }
+     function wordDisplay(){
+         random = Math.floor( Math.random() * wordlist.length );
+         word.innerHTML=wordlist[random];
+         japanese.innerHTML=wordlistJapanese[random];
+         charInsort();
+     }
+     function charInsort(){
+         word_char = wordlist[random].charAt(char_num);
+     }
+     function finish(){
+         score = Math.floor(Math.pow(correct,2) * Math.pow((correct/(correct+mistake)),5));
+         scoredis.innerHTML="スコア:"+score+"点"+"<hr>正タイプ数:"+correct+"<br>ミスタイプ数:"+mistake+"<br>正答率"+(correct/(correct+mistake)*100).toFixed(1)+"%";
+         count.innerHTML="";
+         word.innerHTML="";
+         japanese.innerHTML="";
+         start_button.style.visibility ="visible";
+         word_char=0;
+         random = 0;
+         char_num = 0;
+     }
+document.onkeydown = function(e) {
+    if(e.keyCode == 189){
+       keyStr = "-";
+       }else if(e.keyCode == 188){
+                keyStr = ","
+                }else{
+ var keyStr = String.fromCharCode(e.keyCode);
+    keyStr = keyStr.toLowerCase();
+       }
+    if(keyStr == word_char){
+        document.getElementById('missaudio').pause();
+        document.getElementById('missaudio').currentTime = 0;
+        document.getElementById('correctaudio').pause();
+                   document.getElementById('correctaudio').currentTime = 0;
+        document.getElementById('correctaudio').play();
+        word.innerHTML="<span style='color: red;'>"+wordlist[random].substr(0,char_num+1)+"</span>"+wordlist[random].substr(char_num+1,wordlist[random].length);
+        char_num++;
+        correct++;
+        charInsort();
+       }else{
+                      document.getElementById('missaudio').pause();
+           document.getElementById('missaudio').currentTime = 0;
+           document.getElementById('correctaudio').pause();
+           document.getElementById('correctaudio').currentTime = 0;
+           mistake++;
+           document.getElementById('missaudio').play();
+       }
+    if(char_num == wordlist[random].length){
+        char_num=0;
+        wordDisplay();
+       }
+};
+
+</script>
+        <script data-ad-client="ca-pub-1985911096518287" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+           </head>
+<body>
+       
+                <div class="wrap">
+                <input type="button" id="start_button" value="start" onclick="ready()" style="text-align: center">
+                <div id="count"></div>
+                    <h1><div id="japanese"></div></h1>
+                    <h2><div id="word"></div></h2>
+                <div id="scoredis"></div>
+                
+    </div>
+    <br><br><br><br><br>
+            <div class="menyu">
+                <a href="../manezimento/b.html" class="btn_01">用語の解説</a>
+                <a href="../maingamen/main.html" class="btn_01">トップに戻る</a>
+            </div>
+</body>
+
+
+</html>

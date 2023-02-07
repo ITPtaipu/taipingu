@@ -1,0 +1,32 @@
+body{
+    height: 11500px;  /* 高さ指定 */
+    background: linear-gradient(-225deg, #2CD8D5 0%, #C5C1FF 56%, #FFBAC3 100%);    /* 背景色指定 */
+}
+h1{
+    text-align: center;
+}
+
+a.btn_01 {
+	display: block;
+	text-decoration: none;
+	width: 200px;
+	font-weight: bold;
+	border: 2px solid lightgreen;
+	color: #fff;
+	transition: 0.5s;
+}
+a.btn_01:hover {
+	color: #fff;
+	background: lightgreen;
+}
+
+li {
+    width:fit-content;
+	display:flex;
+	padding: 0.1em 0.3em;
+	transition: all .3s;
+}
+li:hover {
+	color: #fff;
+	background-color:lightgreen;
+}
